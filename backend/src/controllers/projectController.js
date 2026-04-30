@@ -41,7 +41,7 @@ exports.addMember = async (req, res) => {
     const { projectId } = req.params;
     const { email } = req.body;
 
-    const User = require("../models/User");
+    const User = require("../models/user");
 
     const project = await Project.findById(projectId);
     const user = await User.findOne({ email });
