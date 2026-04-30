@@ -5,27 +5,33 @@ import TaskList from "../components/TaskList";
 function Dashboard() {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+const [loading, setLoading] = useState(true);
 
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "/";
+  }
+}, []);
   // 🔹 Fetch projects
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await axios.get(
-  "https://project-manager-app-ka5u.onrender.com/api/projects",
-  {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  }
-);
-        setProjects(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  const fetchProjects = async () => {
+    try {
+      const res = await axios.get(`https://project-manager-app-ka5u.onrender.com/api/projects`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+     setProjects(Array.isArray(res.data) ? res.data : []);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchProjects();
-  }, []);
+  fetchProjects();
+}, []);
 
   // 🔹 Create project
   const createProject = async () => {
@@ -90,7 +96,7 @@ function Dashboard() {
       alert(err.response?.data?.message || "Error");
     }
   };
-
+if (loading) return <p>Loading projects...</p>;
   return (
     <div style={styles.container}>
       {!selectedProject ? (
