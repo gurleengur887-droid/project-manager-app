@@ -10,7 +10,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/projects", {
+        const res = await axios.get("https://project-manager-app-ka5u.onrender.com", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -33,7 +33,7 @@ function Dashboard() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/projects",
+        "https://project-manager-app-ka5u.onrender.com",
         { name, description },
         {
           headers: {
@@ -73,7 +73,7 @@ function Dashboard() {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/projects/${projectId}/add-member`,
+        `https://project-manager-app-ka5u.onrender.com/api/projects/${projectId}/add-member`,
         { email },
         {
           headers: {

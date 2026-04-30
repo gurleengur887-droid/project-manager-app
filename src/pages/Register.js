@@ -7,7 +7,7 @@ function Register({ switchToLogin }) {
 
   const handleRegister = async () => {
     try {
-     await axios.post("http://localhost:5000/api/auth/register", {
+     await axios.post("https://project-manager-app-ka5u.onrender.com/api/auth/register", {
   name: email.split("@")[0],  
   email,
   password,
