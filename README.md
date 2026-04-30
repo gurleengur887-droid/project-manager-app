@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Project Manager App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack project management web app that I built using the MERN stack.
+The goal was to create a simple system where users can create projects, add members, and manage tasks.
 
-## Available Scripts
+## Live Links
+Frontend: https://project-manager-app-theta.vercel.app/
+Backend: https://project-manager-app-ka5u.onrender.com
 
-In the project directory, you can run:
+## Features
+* User registration and login (JWT authentication)
+* Create and manage projects
+* Add members to projects using email
+* View all projects you are part of
+* Basic task management
+* Real-time updates using Socket.io
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Frontend:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* React.js
+* Axios
 
-### `npm test`
+Backend:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+* JWT Authentication
 
-### `npm run build`
+Deployment:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Vercel (Frontend)
+* Render (Backend)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Folder Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+project-manager-app/
 
-### `npm run eject`
+* backend/
+* src/
+* public/
+* README.md
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How to Run Locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+git clone https://github.com/gurleengur887-droid/project-manager-app.git
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install backend dependencies
 
-## Learn More
+cd backend
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Run backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm run dev
 
-### Code Splitting
+4. Install frontend dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+cd ..
+npm install
 
-### Analyzing the Bundle Size
+5. Run frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+npm start
 
-### Making a Progressive Web App
+## Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Create a `.env` file inside backend folder:
 
-### Advanced Configuration
+MONGO_URI=mongodb+srv://project_user:project123@cluster0.cbg78sw.mongodb.net/projectDB
+JWT_SECRET=secret123
+PORT=5000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## What I Learned
 
-### Deployment
+* How to build a full-stack app using MERN
+* Handling authentication using JWT
+* Working with MongoDB and relationships
+* Connecting frontend with backend APIs
+* Deploying full-stack apps (Render + Vercel)
+* Debugging real-world issues (CORS, deployment errors, etc.)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Future Improvements
 
-### `npm run build` fails to minify
+* Better UI (currently basic)
+* Add roles and permissions properly
+* Notifications
+* File uploads
+* Improve real-time features
+  
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Gurleen Kaur
+https://github.com/gurleengur887-droid
+
+## Status
+
+Project is complete and deployed.
