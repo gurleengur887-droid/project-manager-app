@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000", {
+const socket = io("https://project-manager-app-ka5u.onrender.com", {
   auth: {
     token: localStorage.getItem("token"),
   },
@@ -17,7 +17,7 @@ function TaskList({ project }) {
     const fetchTasks = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/tasks/${project._id}`,
+          `https://project-manager-app-ka5u.onrender.com/api/tasks/${project._id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -56,7 +56,7 @@ function TaskList({ project }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/tasks",
+        "https://project-manager-app-ka5u.onrender.com/api/tasks",
         {
           title,
           description,
@@ -85,7 +85,7 @@ function TaskList({ project }) {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/tasks/${task._id}`,
+        `https://project-manager-app-ka5u.onrender.com/api/tasks/${task._id}`,
         { status: newStatus },
         {
           headers: {
@@ -106,7 +106,7 @@ function TaskList({ project }) {
   const deleteTask = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/tasks/${id}`,
+        `https://project-manager-app-ka5u.onrender.com/api/tasks/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
