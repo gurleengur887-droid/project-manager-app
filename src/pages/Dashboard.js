@@ -10,11 +10,14 @@ function Dashboard() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("https://project-manager-app-ka5u.onrender.com", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const res = await axios.get(
+  "https://project-manager-app-ka5u.onrender.com/api/projects",
+  {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }
+);
         setProjects(res.data);
       } catch (err) {
         console.log(err);
@@ -32,15 +35,15 @@ function Dashboard() {
     if (!name) return;
 
     try {
-      const res = await axios.post(
-        "https://project-manager-app-ka5u.onrender.com",
-        { name, description },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+     const res = await axios.post(
+  "https://project-manager-app-ka5u.onrender.com/api/projects",
+  { name, description },
+  {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }
+);
 
       setProjects([...projects, res.data]);
     } catch (err) {
@@ -102,7 +105,7 @@ function Dashboard() {
             <p>No projects yet. Create one to get started 🚀</p>
           ) : (
             <div style={styles.grid}>
-              {projects.map((p) => (
+             {projects && projects.map((p) => (
                 <div
                   key={p._id}
                   style={styles.card}
