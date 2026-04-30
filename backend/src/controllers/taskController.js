@@ -45,7 +45,7 @@ exports.updateTask = async (req, res) => {
       { new: true }
     );
 
-    // 🔥 SOCKET EMIT (YOU WERE MISSING THIS)
+    // 🔥 SOCKET EMIT 
     const io = req.app.get("io");
     io.to(updatedTask.projectId.toString()).emit("taskUpdated", updatedTask);
 

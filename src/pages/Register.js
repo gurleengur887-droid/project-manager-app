@@ -8,7 +8,7 @@ function Register({ switchToLogin }) {
   const handleRegister = async () => {
     try {
      await axios.post("http://localhost:5000/api/auth/register", {
-  name: email.split("@")[0],  // 🔥 ADD THIS
+  name: email.split("@")[0],  
   email,
   password,
 });
